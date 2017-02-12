@@ -10,7 +10,8 @@ import (
 // Delimiter.
 var delim = []byte("---")
 
-// Unmarshal parses YAML frontmatter and returns the content.
+// Unmarshal parses YAML frontmatter and returns the content. When no
+// frontmatter delimiters are present the original content is returned.
 func Unmarshal(b []byte, v interface{}) (content []byte, err error) {
 	if !bytes.HasPrefix(b, delim) {
 		return b, nil
